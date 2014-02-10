@@ -16,6 +16,10 @@ app.get("/", function(req, res){
  
 var server = http.createServer(app);
 
+io.configure(function () { 
+  io.set("transports", ["xhr-polling"]); 
+  io.set("polling duration", 10); 
+});
 io = io.listen(server);
 
 io.sockets.on('connection', function (socket) {
