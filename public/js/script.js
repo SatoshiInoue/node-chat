@@ -19,6 +19,10 @@ socket.on('message', function (data) {
 	}
 });
  
+socket.on('pageview', function (data) {
+    $('#connections').html(data.connections);
+});
+
 $("#send").click(function() {
     if($("#name").val() == "") {
         alert("Please type your name!");
