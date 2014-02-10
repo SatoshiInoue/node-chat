@@ -18,6 +18,11 @@ var server = http.createServer(app);
 
 io = io.listen(server);
 
+io.configure(function () { 
+	  io.set("transports", ["xhr-polling"]); 
+	  io.set("polling duration", 10); 
+});
+
 io.sockets.on('connection', function (socket) {
     socket.emit('message', { message: 'Welcome to the chat', systemMsg: true});
     socket.on('send', function (data) {
@@ -25,10 +30,6 @@ io.sockets.on('connection', function (socket) {
     });
 });
 
-io.configure(function () { 
-	  io.set("transports", ["xhr-polling"]); 
-	  io.set("polling duration", 10); 
-});
 
 server.listen(app.get('port'), function () {
     console.log("Express server listening on port " + app.get('port'));
