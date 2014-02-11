@@ -1,0 +1,11 @@
+ul#messages {
+	list-style: none;
+}
+
+.bgDark {
+	background-color:#707070;
+}
+
+.bgLight {
+	background-color: #909090 ;
+}
